@@ -1,12 +1,12 @@
-def lengthOfLongestSubstring(s: str) -> int:
-    leng = 0
-    le = []
-    d = {}
-    for i in range(len(s)-1):
-        d[i] = s[i]
-        if(s[i] in d):
-            leng = len(d)
-            le.append(leng)
-            leng = 0
-            d = {}            
-    return(max(le))
+class Solution:   
+    def lengthOfLongestSubstring(s: str) -> int:
+        maxLength = 0
+        left = 0
+        char_set = set()
+        for right in range(len(s)):
+            while(s[right] in char_set):
+                char_set.remove(s[left])
+                left = left + 1
+            char_set.add(s[right])
+            maxLength = max(maxLength, right-left+1)
+        return(maxLength)
