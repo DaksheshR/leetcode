@@ -5,8 +5,4 @@ def summ(n):
     return res
         
 
-def esumm(n):
-    ans = 0
-    ans = (n*(n+1))//2
-    return ans
-
+#error
